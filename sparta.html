@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Players</title>
+    <!-- 부트스트랩 CDN 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* 커스텀 스타일 */
+        body {
+            background: #f8f9fa; /* 전체 배경 색상을 설정 */
+            color: #495057; /* 텍스트 색상을 지정 */
+        }
+
+        /* Hero 컴포넌트 스타일 */
+        .jumbotron {
+            background: url('https://images.unsplash.com/photo-1516731566880-919c39006c9d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fCVFQyVCNiU5NSVFQSVCNSVBQyUyMCVFQSVCMyVBOCVFQiU4QyU4MHxlbnwwfHwwfHx8MA%3D%3D') center / cover no-repeat;
+            padding: 2rem;
+            color: white; /* 텍스트 색상을 흰색으로 설정 */
+        }
+        .card {
+            margin: 10px;
+        }
+        /* Soccer Field Section */
+        .soccer-field {
+            background: url('soccer-field.jpg') center / cover no-repeat;
+            height: 500px; /* Adjust the height as needed */
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Player Marker Styling */
+        .player-marker {
+            position: absolute;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 80px; /* Adjust the size of the player marker */
+        }
+
+        /* Individual Position Styling */
+        .attacker-marker {
+            top: 50%;
+            left: 10%;
+        }
+
+        .midfielder-marker {
+            top: 50%;
+            left: 40%;
+        }
+
+        .defender-marker {
+            top: 50%;
+            left: 70%;
+        }
+
+        .goalkeeper-marker {
+            top: 10%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 부트스트랩 Hero 컴포넌트 -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">BEST PLAYERS</h1>
+        <h2 class="lead">우리가 만드는 최고의 선수들</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- 카드: 공격수 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="공격수.jpg" class="card-img-top" alt="공격수 이미지" width="100" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">공격수</h5>
+                        <!-- 선택된 선수 표시 부분 -->
+                        <p id="attackerSelection">선택된 선수: 없음</p>
+                        <!-- 선수 리스트 드롭다운 -->
+                        <select id="attackerDropdown" class="form-control">
+                            <option value="Lionel Messi">Lionel Messi</option>
+                            <option value="Cristiano Ronaldo">Cristiano Ronaldo</option>
+                            <option value="Neymar Jr">Neymar Jr</option>
+                            <option value="Kylian Mbappe">Kylian Mbappe</option>
+                            <option value="Robert Lewandowski">Robert Lewandowski</option>
+                            <option value="Harry Kane">Harry Kane</option>
+                            <option value="Mohamed Salah">Mohamed Salah</option>
+                            <option value="Erling Haaland">Erling Haaland</option>
+                            <option value="Sadio Mane">Sadio Mane</option>
+                            <option value="Karim Benzema">Karim Benzema</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드: 미드필더 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="미드필더.jpg" class="card-img-top" alt="미드필더 이미지" width="100" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">미드필더</h5>
+                        <!-- 선택된 선수 표시 부분 -->
+                        <p id="midfielderSelection">선택된 선수: 없음</p>
+                        <!-- 선수 리스트 드롭다운 -->
+                        <select id="midfielderDropdown" class="form-control">
+                            <option value="Kevin De Bruyne">Kevin De Bruyne</option>
+                            <option value="Luka Modric">Luka Modric</option>
+                            <option value="N'Golo Kanté">N'Golo Kanté</option>
+                            <option value="Bruno Fernandes">Bruno Fernandes</option>
+                            <option value="Joshua Kimmich">Joshua Kimmich</option>
+                            <option value="Jordan Henderson">Jordan Henderson</option>
+                            <option value="Frenkie de Jong">Frenkie de Jong</option>
+                            <option value="Marco Verratti">Marco Verratti</option>
+                            <option value="Casemiro">Casemiro</option>
+                            <option value="Serge Gnabry">Serge Gnabry</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드: 수비수 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="수비수.jpg" class="card-img-top" alt="수비수 이미지"width="100" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">수비수</h5>
+                        <!-- 선택된 선수 표시 부분 -->
+                        <p id="defenderSelection">선택된 선수: 없음</p>
+                        <!-- 선수 리스트 드롭다운 -->
+                        <select id="defenderDropdown" class="form-control">
+                            <option value="Virgil van Dijk">Virgil van Dijk</option>
+                            <option value="Ruben Dias">Ruben Dias</option>
+                            <option value="Andrew Robertson">Andrew Robertson</option>
+                            <option value="Joshua Kimmich">Joshua Kimmich</option>
+                            <option value="Sergio Ramos">Sergio Ramos</option>
+                            <option value="Aymeric Laporte">Aymeric Laporte</option>
+                            <option value="Kalidou Koulibaly">Kalidou Koulibaly</option>
+                            <option value="John Stones">John Stones</option>
+                            <option value="Marquinhos">Marquinhos</option>
+                            <option value="João Cancelo">João Cancelo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드: 골키퍼 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="골키퍼.jpg" class="card-img-top" alt="골키퍼 이미지" width="100" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">골키퍼</h5>
+                        <!-- 선택된 선수 표시 부분 -->
+                        <p id="goalkeeperSelection">선택된 선수: 없음</p>
+                        <!-- 선수 리스트 드롭다운 -->
+                        <select id="goalkeeperDropdown" class="form-control">
+                            <option value="Alisson Becker">Alisson Becker</option>
+                            <option value="Ederson">Ederson</option>
+                            <option value="Jan Oblak">Jan Oblak</option>
+                            <option value="Thibaut Courtois">Thibaut Courtois</option>
+                            <option value="Marc-André ter Stegen">Marc-André ter Stegen</option>
+                            <option value="Keylor Navas">Keylor Navas</option>
+                            <option value="Hugo Lloris">Hugo Lloris</option>
+                            <option value="Manuel Neuer">Manuel Neuer</option>
+                            <option value="Samir Handanović">Samir Handanović</option>
+                            <option value="David de Gea">David de Gea</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- ... (previous card elements) ... -->
+                <!-- Summary Button -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-primary mt-3" id="showSummaryBtn">Show Selection Summary</button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Summary Modal -->
+            <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="summaryModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="summaryModalLabel">선택된 선수 요약</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Summary Content -->
+                            <p id="attackerSummary">공격수: 없음</p>
+                            <p id="midfielderSummary">미드필더: 없음</p>
+                            <p id="defenderSummary">수비수: 없음</p>
+                            <p id="goalkeeperSummary">골키퍼: 없음</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="soccer-field">
+                <!-- Player Markers -->
+                <div class="player-marker attacker-marker" id="attackerMarker"></div>
+                <div class="player-marker midfielder-marker" id="midfielderMarker"></div>
+                <div class="player-marker defender-marker" id="defenderMarker"></div>
+                <div class="player-marker goalkeeper-marker" id="goalkeeperMarker"></div>
+            </div>      
+        </div>
+    </div>
+    <!-- 부트스트랩 스크립트 추가 (jQuery 및 Popper.js 포함) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // 각 포지션의 선택된 선수 표시를 업데이트하는 함수
+        function updateSelection(position, playerName) {
+            const selectionElement = document.getElementById(`${position}Selection`);
+            selectionElement.textContent = `${playerName}`;
+        }
+
+        // 선수 선택 이벤트 리스너
+        document.querySelectorAll('select').forEach(select => {
+            const position = select.id.replace('Dropdown', '');
+            select.addEventListener('change', () => {
+                const playerName = select.value;
+                updateSelection(position.toLowerCase(), playerName || '없음');
+            });
+        });
+       // Summary Button Click Event
+       document.getElementById('showSummaryBtn').addEventListener('click', () => {
+            // Get selected players
+            const attacker = document.getElementById('attackerSelection').textContent.replace('선택된 선수: ', '');
+            const midfielder = document.getElementById('midfielderSelection').textContent.replace('선택된 선수: ', '');
+            const defender = document.getElementById('defenderSelection').textContent.replace('선택된 선수: ', '');
+            const goalkeeper = document.getElementById('goalkeeperSelection').textContent.replace('선택된 선수: ', '');
+
+            // Update player markers on the soccer field
+            document.getElementById('attackerMarker').textContent = `공격수: ${attacker}`;
+            document.getElementById('midfielderMarker').textContent = `미드필더: ${midfielder}`;
+            document.getElementById('defenderMarker').textContent = `수비수: ${defender}`;
+            document.getElementById('goalkeeperMarker').textContent = `골키퍼: ${goalkeeper}`;
+
+            // Show Summary Modal
+            $('#summaryModal').modal('show');
+        });
+    </script>
+</body>
+</html>
